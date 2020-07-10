@@ -105,27 +105,30 @@
     <!-- navbar end -->
 
     <!-- hero start -->
-    <section class="hero d-flex align-items-center mfb-2">
-      <div class="container text-center">
+    <section class="hero d-flex align-items-center">
+      <div class="container text-center rellax" data-rellax-speed="10">
         <span class="text-white font-weight-bold hero-tagline">
           Hello world
         </span>
         <p class="text-white font-weight-bold">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
           perspiciatis vero aut inventore nihil neque eaque deserunt soluta illo
-          ratione itaque dolores veniam at totam placeat, ducimus hello, aliquam
-          modi veritatis.
+          ratione itaque dolores veniam at totam placeat, ducimus, aliquam modi
+          veritatis.
         </p>
 
-        <button class="btn btn-danger font-weight-bold btn-lg mt-3 mt-md-5">
-          Scroll Up
-        </button>
+        <a
+          class="btn btn-danger font-weight-bold btn-lg mt-3 mt-md-5"
+          href="#intro"
+        >
+          Scroll down
+        </a>
       </div>
     </section>
     <!-- hero end -->
 
     <!-- intro start -->
-    <section class="py-5">
+    <section class="py-5" id="intro">
       <div class="container d-flex flex-wrap">
         <!-- col left start -->
         <div
@@ -136,13 +139,13 @@
               intro
             </span>
             <span class="h3 font-weight-bold d-block">
-              Lorem ipsum dollar sit, amet consectetur adipisicing elit.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             </span>
             <p class="lead mt-4">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere
               saepe deserunt magnam iure molestiae modi distinctio dicta
               quisquam commodi atque dolore consequatur sequi natus corporis
-              totam porro tenetur, sapiente voluptatibus.
+              totam porro tenetur, sapiente voluptatibus!
             </p>
             <p class="font-italic d-block">
               &quot;Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -155,8 +158,8 @@
         </div>
         <!-- col left end -->
         <!-- col right start -->
-        <div class="col-12 col-md-6 mt-4 mt-md-0 order-1 order-lg-2">
-          <img src="intro.jpg" alt="" class="img-fluid" />
+        <div class="col-12 col-md-6 mb-4 mb-md-0 order-1 order-lg-2">
+          <img src="intro.jpg" alt="Intro" class="img-fluid" />
         </div>
         <!-- col right end -->
       </div>
@@ -211,11 +214,11 @@
 
     <!-- services start -->
     <section class="py-5">
-      <div class="container-fluid px-md-0 d-md-flex">
-        <div class="col-12 col-md-6 px-md-0">
-          <img src="hero.jpg" alt="" class="img-fluid" />
+      <div class="container-fluid px-xl-0 d-xl-flex">
+        <div class="col-12 col-xl-6 px-xl-0">
+          <img src="s1.jpg" alt="" class="img-fluid" />
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-xl-6 my-4">
           <div class="accordion" id="accordionExample">
             <div class="card">
               <div class="card-header" id="headingOne">
@@ -329,8 +332,10 @@
           </div>
         </div>
       </div>
-      <div class="container-fluid px-md-0 d-md-flex">
-        <div class="col-12 col-md-6 d-md-flex align-items-center">
+      <div class="container-fluid px-xl-0 d-flex flex-wrap">
+        <div
+          class="col-12 col-xl-6 d-xl-flex align-items-center my-4 order-2 order-xl-1"
+        >
           <div class="container">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
               <li class="nav-item" role="presentation">
@@ -452,8 +457,8 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-6 px-md-0">
-          <img src="hero.jpg" alt="" class="img-fluid" />
+        <div class="col-12 col-xl-6 px-xl-0 order-1 order-xl-2">
+          <img src="s2.jpg" alt="" class="img-fluid" />
         </div>
       </div>
     </section>
@@ -688,6 +693,66 @@
           prevEl: ".swiper-button-prev",
         },
       });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+
+    <script>
+      var rellax = new Rellax(".rellax");
+    </script>
+
+    <script src="smoothscroll.js"></script>
+    <!-- Code injected by live-server -->
+    <script type="text/javascript">
+      // <![CDATA[  <-- For SVG support
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if (
+                (elem.href && typeof rel != "string") ||
+                rel.length == 0 ||
+                rel.toLowerCase() == "stylesheet"
+              ) {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href =
+                  url +
+                  (url.indexOf("?") >= 0 ? "&" : "?") +
+                  "_cacheOverride=" +
+                  new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol =
+            window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address =
+            protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (
+            sessionStorage &&
+            !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")
+          ) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error(
+          "Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading."
+        );
+      }
+      // ]]>
     </script>
   </body>
 </html>
